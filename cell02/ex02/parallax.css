@@ -19,7 +19,7 @@ body{
 }
 
 .parallax{
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -39,7 +39,7 @@ body{
 .blackblock{
     background-color: black;
     color: white;
-    height: 100vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
