@@ -26,19 +26,19 @@
 }
 
 .title{
-    font-weight: 900;
-    font-size: 15px;
+    /* font-weight: 900; */
+    /* font-size: 25px; */
     margin-bottom: 1rem;
 }
 
 .content_container{
     text-align: center;
-    height: 52vh;
+    height: 315px;
 }
 
 .footer{
     width: 200px;
-    height: 5vh;
+    height: 25px;
     background-color: black;
     position: absolute;
     bottom: 0;
@@ -63,3 +63,4 @@
 .name,.description,.bankok,.social{
     padding-top: 0.8rem;
 }
+
