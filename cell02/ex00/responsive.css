@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.box{
+    border: 1px solid #333;
+    height: 100vh;
+    /* padding-top: 50%; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#a{
+    background-color: #b0d25d;
+}
+#b{
+    background-color: #f58688;
+}
