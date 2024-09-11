@@ -5,7 +5,7 @@
     font-family: 'Courier New', Courier, monospace;
 }
 .imageR{
-    width: 200px;
+    width: 250px;
 
 }
 .container{
@@ -33,11 +33,11 @@
 
 .content_container{
     text-align: center;
-    height: 315px;
+    height: 430px;
 }
 
 .footer{
-    width: 200px;
+    width: 250px;
     height: 25px;
     background-color: black;
     position: absolute;
@@ -62,5 +62,9 @@
 
 .name,.description,.bankok,.social{
     padding-top: 0.8rem;
+}
+
+.description{
+    color: #5e5e5e;
 }
 
