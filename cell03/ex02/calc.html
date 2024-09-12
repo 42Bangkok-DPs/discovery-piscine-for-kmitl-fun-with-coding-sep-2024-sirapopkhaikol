@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calc{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        input,select{
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <input type="text" id="leftInput">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="rightInput">
+        <input type="submit" class="submit" value="Try me!" onclick="calculate()"></input>
+
+    </div>
+    <script>
+
+        function calculate(){
+            const Left = parseInt(document.getElementById('leftInput').value)
+            const Operator = document.getElementById('operator').value
+            const Right = parseInt(document.getElementById('rightInput').value)
+
+            //check ค่าลบ
+            if (!isPositiveInteger(Left) || !isPositiveInteger(Right)){
+                alert('Error :(')
+                return
+            }
+
+            //check ส่วน 0
+            if ((Operator === '/' || Operator === '%') && Right === 0) {
+                alert('It’s over 9000!')
+                console.log('It’s over 9000!')
+                return
+            }
+
+            let result
+
+
+            //เลือก Operator
+
+            switch(Operator){
+                case '+' :
+                    result = Left+Right
+                    break
+                case '-' :
+                    result = Left - Right
+                    break
+                case '*' :
+                    result = Left * Right
+                    break
+                case '/' :
+                    result = Left / Right
+                    break
+                case '%' :
+                    result = Left % Right
+                    break
+                default:
+                    alert('Error :(')
+                    return
+            }
+       
+            // แสดง  result
+            alert('Result = '+ result)
+            console.log('Result = ', result)
+       
+        }
+
+    // check ค่าลบ 
+    function isPositiveInteger(value){
+        return !isNaN(value) && value >= 0
+
+    }
+
+    </script>
+</body>
+</html>
