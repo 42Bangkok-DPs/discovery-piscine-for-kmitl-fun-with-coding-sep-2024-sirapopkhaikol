@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #balloon{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div id="balloon"></div>
+    </div>
+    <script>
+        const balloon = document.getElementById('balloon')
+        const color = ['red', 'green' ,'blue']
+        let currentSize = 200
+        let colorIndex = 0
+
+        //เมื่อคลิ๊ก
+        balloon.addEventListener('click',()=>{
+            currentSize += 10
+            console.log(currentSize)
+            //loop สี
+            colorIndex = (colorIndex+1)%color.length
+
+            //เปลี่ยนสี
+            balloon.style.backgroundColor = color[colorIndex]
+
+            //เปลี่ยนขนาด นำค่ามาจาก currentSize ในหน่วย px
+            balloon.style.width = currentSize + 'px'
+            balloon.style.height = currentSize + 'px'
+
+        //check balloon ว่าเกินขนาด 420px หรือไม่ ==> reset balloon
+        if(currentSize > 420){
+            alert('Boom! The balloon exploded.')
+            currentSize = 200
+            colorIndex = 0
+            balloon.style.backgroundColor = 'red'
+            balloon.style.width = '200px'
+            balloon.style.height = '200px'
+            console.log(currentSize)
+            
+        } 
+        })
+
+        
+
+        //เปลี่ยนเป็นสีก่อนหน้า
+
+        balloon.addEventListener('mouseleave',()=>{
+            if (currentSize >= 205) {
+                currentSize -= 5
+            }
+            console.log(currentSize)
+            //loop สี แบบ reverse
+            colorIndex = (colorIndex - 1 + color.length) % color.length
+
+            // เปลี่ยนสี
+            balloon.style.backgroundColor = color[colorIndex]
+
+            //เอาเม้าส์ออกจะลดขนาด
+            balloon.style.height = currentSize + 'px'
+            balloon.style.width = currentSize + 'px'
+        })
+
+        
+
+    </script>
+   
+</body>
+</html>
