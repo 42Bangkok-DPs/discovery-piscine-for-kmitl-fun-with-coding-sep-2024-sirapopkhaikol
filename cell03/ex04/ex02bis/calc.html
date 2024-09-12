@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator with jQuery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .calculator {
+      padding: 20px;
+      border: 2px solid #ccc;
+      background-color: white;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    input[type="number"], select {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <div class="calculator">
+    <!-- Input fields for calculator -->
+    <input type="number" id="leftOperand" placeholder="Enter left operand">
+    
+    <!-- Operator selection -->
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+
+    <!-- Input fields for right operand -->
+    <input type="number" id="rightOperand" placeholder="Enter right operand">
+    
+    <!-- Submit button -->
+    <input type="submit" id="calculateBtn" value="Try me!">
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Function to handle the calculation
+      $('#calculateBtn').click(function() {
+        // Get values from inputs and select
+        const leftOperand = $('#leftOperand').val();
+        const operator = $('#operator').val();
+        const rightOperand = $('#rightOperand').val();
+
+        // Check if both operands are positive integers
+        if (leftOperand === "" || rightOperand === "" || leftOperand < 0 || rightOperand < 0) {
+          alert('Error :(');
+          return;
+        }
+
+        // Convert operands to numbers
+        const left = parseInt(leftOperand);
+        const right = parseInt(rightOperand);
+        let result;
+
+        // Check for division or modulo by zero
+        if ((operator === '/' || operator === '%') && right === 0) {
+          alert("It's over 9000!");
+          console.log("It's over 9000!");
+          return;
+        }
+
+        // Perform the calculation based on the operator
+        switch (operator) {
+          case '+':
+            result = left + right;
+            break;
+          case '-':
+            result = left - right;
+            break;
+          case '*':
+            result = left * right;
+            break;
+          case '/':
+            result = left / right;
+            break;
+          case '%':
+            result = left % right;
+            break;
+          default:
+            alert('Error :(');
+            return;
+        }
+
+        // Display the result in an alert and log to console
+        alert('Result: ' + result);
+        console.log('Result: ' + result);
+      });
+
+      // Set an interval to show an alert every 30 seconds
+      setInterval(function() {
+        alert('Please, use me...');
+      }, 30000);
+    });
+  </script>
+
+</body>
+</html>

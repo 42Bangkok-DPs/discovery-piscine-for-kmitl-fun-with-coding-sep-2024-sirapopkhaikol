@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balloon with jQuery</title>
+  <style>
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #balloon{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+  </style>
+
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="balloon"></div>
+    </div>
+
+  <script>
+    let currentSize = 200; 
+    const maxSize = 420; 
+    const minSize = 200; 
+    const colors = ['red', 'green', 'blue']; 
+    let colorIndex = 0;
+
+    
+    function changeColor() {
+      
+      //loop สี
+      colorIndex = (colorIndex + 1) % colors.length;
+      return colors[colorIndex];
+    }
+
+    // loop สี reverse
+    function changeColorReverse() {
+      colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+      return colors[colorIndex];
+    }
+
+    // jQuery
+    $(document).ready(function() {
+      
+      //add ปริมาตร
+      $('#balloon').click(function() {
+        if (currentSize < maxSize) {
+          currentSize += 10; // เพิ่ม size 10px
+          $(this).css({
+            'width': currentSize + 'px',
+            'height': currentSize + 'px',
+            'background-color': changeColor() // Change color in a cycle
+          });
+        } else {
+          alert('Balloon exploded! Resetting to original size.');
+          currentSize = minSize; // Reset size เป็น 200 px
+          $(this).css({
+            'width': currentSize,
+            'height': currentSize,
+            'background-color': 'red' // Reset color to red
+          });
+        }
+      });
+
+      // (shrink balloon) เมื่อเอาเม้าส์ออก
+      $('#balloon').mouseleave(function() {
+        if (currentSize > minSize) {
+          currentSize -= 5; // Decrease size by 5px
+          $(this).css({
+            'width': currentSize + 'px',
+            'height': currentSize + 'px',
+            'background-color': changeColorReverse() // Change color in reverse
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
