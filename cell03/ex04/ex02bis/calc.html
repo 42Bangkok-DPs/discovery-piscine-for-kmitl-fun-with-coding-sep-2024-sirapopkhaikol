@@ -24,10 +24,10 @@
       text-align: center;
     }
 
-    input[type="number"], select {
+    input[type="text"], select {
       margin: 10px 0;
       padding: 10px;
-      width: 100%;
+      width: 80%;
       font-size: 16px;
     }
 
@@ -54,7 +54,7 @@
 
   <div class="calculator">
     <!-- Input fields for calculator -->
-    <input type="number" id="leftOperand" placeholder="Enter left operand">
+    <input type="text" id="leftOperand" placeholder="Enter left operand">
     
     <!-- Operator selection -->
     <select id="operator">
@@ -66,7 +66,7 @@
     </select>
 
     <!-- Input fields for right operand -->
-    <input type="number" id="rightOperand" placeholder="Enter right operand">
+    <input type="text" id="rightOperand" placeholder="Enter right operand">
     
     <!-- Submit button -->
     <input type="submit" id="calculateBtn" value="Try me!">
@@ -77,60 +77,61 @@
       // Function to handle the calculation
       $('#calculateBtn').click(function() {
         // Get values from inputs and select
-        const leftOperand = $('#leftOperand').val();
-        const operator = $('#operator').val();
-        const rightOperand = $('#rightOperand').val();
+        const leftOperand = $('#leftOperand').val()
+        const operator = $('#operator').val()
+        const rightOperand = $('#rightOperand').val()
 
         // Check if both operands are positive integers
         if (leftOperand === "" || rightOperand === "" || leftOperand < 0 || rightOperand < 0) {
-          alert('Error :(');
-          return;
+          alert('Error :(')
+          return
         }
 
         // Convert operands to numbers
-        const left = parseInt(leftOperand);
-        const right = parseInt(rightOperand);
-        let result;
+        const left = parseInt(leftOperand)
+        const right = parseInt(rightOperand)
+
+        let result
 
         // Check for division or modulo by zero
         if ((operator === '/' || operator === '%') && right === 0) {
-          alert("It's over 9000!");
-          console.log("It's over 9000!");
+          alert("It's over 9000!")
+          console.log("It's over 9000!")
           return;
         }
 
         // Perform the calculation based on the operator
         switch (operator) {
           case '+':
-            result = left + right;
-            break;
+            result = left + right
+            break
           case '-':
-            result = left - right;
-            break;
+            result = left - right
+            break
           case '*':
-            result = left * right;
-            break;
+            result = left * right
+            break
           case '/':
-            result = left / right;
-            break;
+            result = left / right
+            break
           case '%':
-            result = left % right;
-            break;
+            result = left % right
+            break
           default:
-            alert('Error :(');
-            return;
+            alert('Error :(')
+            return
         }
 
         // Display the result in an alert and log to console
-        alert('Result: ' + result);
-        console.log('Result: ' + result);
+        alert('Result: ' + result)
+        console.log('Result: ' + result)
       });
 
       // Set an interval to show an alert every 30 seconds
       setInterval(function() {
         alert('Please, use me...');
-      }, 30000);
-    });
+      }, 30000)
+    })
   </script>
 
 </body>
