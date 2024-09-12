@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      height: 100vh;
+    }
+
+    #ft_list {
+      border: 2px solid #ccc;
+      padding: 10px;
+      width: 300px;
+      height: 400px;
+      overflow-y: auto;
+      background-color: white;
+    }
+
+    .todo-item {
+      padding: 10px;
+      background-color: #fafafa;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .todo-item:hover {
+      background-color: #ddd;
+    }
+
+    #newBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>To Do List</h2>
+
+  <!-- To do list container -->
+  <div id="ft_list"></div>
+
+  <!-- Button to create a new To Do item -->
+  <button id="newBtn">New</button>
+
+  <script src="todo.js"></script>
+
+
+</body>
+</html>
