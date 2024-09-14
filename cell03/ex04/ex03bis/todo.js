@@ -14,7 +14,7 @@ $(document).ready(function() {
     // Function to add a new TO DO item to the list
     function addTodo(text) {
       const newTodo = $('<div class="todo-item"></div>').text(text)
-      $('#ft_list').append(newTodo)
+      $('#ft_list').prepend(newTodo)
 
       // Click event to remove the TO DO
       newTodo.click(function() {
@@ -30,7 +30,7 @@ $(document).ready(function() {
     function saveTodosToCookie() {
       const todoArray = []
       $('#ft_list .todo-item').each(function() {
-        todoArray.push($(this).text())
+        todoArray.unshift($(this).text())
       });
       document.cookie = 'todos=' + JSON.stringify(todoArray) + '; path=/'
     }
