@@ -81,13 +81,9 @@
         const operator = $('#operator').val()
         const rightOperand = $('#rightOperand').val()
 
-        // Check if both operands are positive integers
-        if (leftOperand === "" || rightOperand === "" || leftOperand < 0 || rightOperand < 0) {
-          alert('Error :(')
-          return
-        }
 
-        if(typeof(leftOperand)==="string" || typeof(rightOperand)==="string"){
+        // Check if both operands are positive integers
+        if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0) {
           alert('Error :(')
           return
         }
