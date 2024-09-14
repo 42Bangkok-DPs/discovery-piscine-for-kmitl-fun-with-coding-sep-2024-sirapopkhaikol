@@ -83,7 +83,7 @@
 
 
         // Check if both operands are positive integers
-        if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0) {
+        if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0 || !Number.isInteger(leftOperand) || !Number.isInteger(rightOperand)) {
           alert('Error :(')
           return
         }

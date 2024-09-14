@@ -30,7 +30,7 @@ $(document).ready(function() {
     function saveTodosToCookie() {
       const todoArray = []
       $('#ft_list .todo-item').each(function() {
-        todoArray.unshift($(this).text())
+        todoArray.unshift(encodeURIComponent($(this).text()))
       });
       document.cookie = 'todos=' + JSON.stringify(todoArray) + '; path=/'
     }
@@ -41,7 +41,7 @@ $(document).ready(function() {
       if (cookieString) {
         const todoArray = JSON.parse(cookieString.split('=')[1])
         todoArray.forEach(function(todoText) {
-          addTodo(todoText)
+          addTodo(decodeURIComponent(todoText))
         })
       }
     }
