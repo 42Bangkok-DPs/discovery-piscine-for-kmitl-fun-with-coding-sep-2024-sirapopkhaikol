@@ -77,13 +77,13 @@
       // Function to handle the calculation
       $('#calculateBtn').click(function() {
         // Get values from inputs and select
-        const leftOperand = $('#leftOperand').val()
+        let leftOperand = $('#leftOperand').val()
         const operator = $('#operator').val()
-        const rightOperand = $('#rightOperand').val()
+        let rightOperand = $('#rightOperand').val()
 
 
         // Check if both operands are positive integers
-        if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0 || !Number.isInteger(leftOperand) || !Number.isInteger(rightOperand)) {
+        if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0 || !/^\d+$/.test(leftOperand) || !/^\d+$/.test(rightOperand)) {
           alert('Error :(')
           return
         }
