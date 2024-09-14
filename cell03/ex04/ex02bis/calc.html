@@ -87,6 +87,11 @@
           return
         }
 
+        if(typeof(leftOperand)==="string" || typeof(rightOperand)==="string"){
+          alert('Error :(')
+          return
+        }
+
         // Convert operands to numbers
         const left = parseInt(leftOperand)
         const right = parseInt(rightOperand)

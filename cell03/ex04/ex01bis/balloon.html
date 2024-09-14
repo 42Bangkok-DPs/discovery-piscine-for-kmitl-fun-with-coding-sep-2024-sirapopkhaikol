@@ -63,8 +63,9 @@
       
       //add ปริมาตร
       $('#balloon').click(function() {
-        if (currentSize < maxSize) {
+        if (currentSize <= 410) {
           currentSize += 10; // เพิ่ม size 10px
+          console.log(currentSize)
           $(this).css({
             'width': currentSize + 'px',
             'height': currentSize + 'px',
@@ -81,10 +82,13 @@
         }
       });
 
+
+
       // (shrink balloon) เมื่อเอาเม้าส์ออก
       $('#balloon').mouseleave(function() {
         if (currentSize > minSize) {
           currentSize -= 5; // Decrease size by 5px
+          console.log(currentSize)
           $(this).css({
             'width': currentSize + 'px',
             'height': currentSize + 'px',

@@ -14,7 +14,7 @@ $(document).ready(function() {
     // Function to add a new TO DO item to the list
     function addTodo(text) {
       const newTodo = $('<div class="todo-item"></div>').text(text)
-      $('#ft_list').prepend(newTodo)
+      $('#ft_list').append(newTodo)
 
       // Click event to remove the TO DO
       newTodo.click(function() {
